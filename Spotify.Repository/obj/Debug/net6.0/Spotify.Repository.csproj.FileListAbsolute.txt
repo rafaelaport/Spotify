@@ -1,0 +1,17 @@
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.Repository.deps.json
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.Repository.dll
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.Repository.pdb
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.CrossCutting.dll
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.Domain.dll
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.Domain.pdb
+C:\GIT\spotify\Spotify.Repository\bin\Debug\net6.0\Spotify.CrossCutting.pdb
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.csproj.AssemblyReference.cache
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.AssemblyInfoInputs.cache
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.AssemblyInfo.cs
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.csproj.CoreCompileInputs.cache
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.csproj.CopyComplete
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.dll
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\refint\Spotify.Repository.dll
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\Spotify.Repository.pdb
+C:\GIT\spotify\Spotify.Repository\obj\Debug\net6.0\ref\Spotify.Repository.dll
