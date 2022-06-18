@@ -1,4 +1,5 @@
 ﻿using Spotify.Domain.Album;
+using Spotify.Domain.Album.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Spotify.Repository.Repository
 {
-    public class AlbumRepository : Repository<Album>
+    public class AlbumRepository : Repository<Album>, IAlbumRepository
     {
         public AlbumRepository(SpotifyContext context) : base(context)
         {

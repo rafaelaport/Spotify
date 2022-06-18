@@ -1,5 +1,5 @@
-using Spotify.Repository.Context;
 using Microsoft.EntityFrameworkCore;
+using Spotify.Repository;
 
 namespace Spotify.Api
 {
@@ -13,22 +13,21 @@ namespace Spotify.Api
 
             builder.Services.AddControllers();
 
-            builder.Services.AddDbContext<SpotifyContext>(c =>
-            {
-                c.UseSqlServer(builder.Configuration.GetConnectionString("Spotify"));
-            });
+            builder.Services
+                   .RegisterRepository(builder.Configuration.GetConnectionString("Spotify"));
+
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                //app.UseSwagger();
-                //app.UseSwaggerUI();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
@@ -38,6 +37,7 @@ namespace Spotify.Api
             app.MapControllers();
 
             app.Run();
+
         }
     }
 }

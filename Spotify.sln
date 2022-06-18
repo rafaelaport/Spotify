@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.Domain", "Domain\Spotify.Domain.csproj", "{9CE977C7-EA30-48DD-BF6D-CC862A409EF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.CrossCutting", "Spotify.CrossCutting\Spotify.CrossCutting.csproj", "{F43CC089-F5FC-4352-B85A-43E6AA8D7ABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.CrossCutting", "Spotify.CrossCutting\Spotify.CrossCutting.csproj", "{F43CC089-F5FC-4352-B85A-43E6AA8D7ABB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.Repository", "Spotify.Repository\Spotify.Repository.csproj", "{06AA0EFB-B395-42BE-B56D-46CB248A21D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.Repository", "Spotify.Repository\Spotify.Repository.csproj", "{06AA0EFB-B395-42BE-B56D-46CB248A21D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.Api", "Spotify.Api\Spotify.Api.csproj", "{7A116398-98CC-444C-A172-3FFC6891D04B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.Api", "Spotify.Api\Spotify.Api.csproj", "{A2FEF446-A393-47B8-A725-B07657F140CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{06AA0EFB-B395-42BE-B56D-46CB248A21D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06AA0EFB-B395-42BE-B56D-46CB248A21D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06AA0EFB-B395-42BE-B56D-46CB248A21D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A116398-98CC-444C-A172-3FFC6891D04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A116398-98CC-444C-A172-3FFC6891D04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A116398-98CC-444C-A172-3FFC6891D04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A116398-98CC-444C-A172-3FFC6891D04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FEF446-A393-47B8-A725-B07657F140CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FEF446-A393-47B8-A725-B07657F140CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FEF446-A393-47B8-A725-B07657F140CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FEF446-A393-47B8-A725-B07657F140CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
