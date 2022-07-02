@@ -9,7 +9,7 @@ namespace Spotify.Application.Album.Dto
 {
     public record AlbumInputDto(string Nome, DateTime DataLancamento, string CaminhoCapa, List<MusicaInputDto> Musicas);
     public record AlbumOutputDto(Guid Id, string Nome, DateTime DataLancamento, string CaminhoCapa, List<MusicaOutputDto> Musicas);
-    public record MusicaInputDto(string Nome, string Duracao);
+    public record MusicaInputDto(string Nome, int Duracao);
     public record MusicaOutputDto(Guid Id, string Nome, string Duracao);
     public record BandaInputDto(
         [Required(ErrorMessage = "Nome é obrigatório!")] string Nome, 
