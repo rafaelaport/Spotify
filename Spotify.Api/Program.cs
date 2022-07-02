@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Spotify.Application;
 using Spotify.Repository;
 
 namespace Spotify.Api
@@ -14,7 +15,8 @@ namespace Spotify.Api
             builder.Services.AddControllers();
 
             builder.Services
-                   .RegisterRepository(builder.Configuration.GetConnectionString("Spotify"));
+                .RegisterApplication()
+                .RegisterRepository(builder.Configuration.GetConnectionString("Spotify"));
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
