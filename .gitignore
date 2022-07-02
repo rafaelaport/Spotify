@@ -2,5 +2,10 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+
 /.vs
+/Domain/obj/Debug/net6.0
+/Domain/obj/Release/net6.0
 /Domain/obj
+/Spotify.Application/obj
+/Spotify.Application/bin/Debug/net6.0
