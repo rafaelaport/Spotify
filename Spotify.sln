@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.Domain", "Domain\Spotify.Domain.csproj", "{9CE977C7-EA30-48DD-BF6D-CC862A409EF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.Domain", "Spotify.Domain\Spotify.Domain.csproj", "{9CE977C7-EA30-48DD-BF6D-CC862A409EF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify.CrossCutting", "Spotify.CrossCutting\Spotify.CrossCutting.csproj", "{F43CC089-F5FC-4352-B85A-43E6AA8D7ABB}"
 EndProject

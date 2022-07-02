@@ -4,8 +4,6 @@
 
 
 /.vs
-/Domain/obj
-/Domain/bin/Debug/net6.0
 /Spotify.Api/bin/Debug/net6.0
 /Spotify.Api/obj
 /Spotify.Application/bin/Debug/net6.0
@@ -14,3 +12,5 @@
 /Spotify.CrossCutting/obj
 /Spotify.Repository/bin/Debug/net6.0
 /Spotify.Repository/obj
+/Spotify.Domain/bin/Debug/net6.0
+/Spotify.Domain/obj
