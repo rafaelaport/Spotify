@@ -16,7 +16,7 @@ namespace Spotify.Domain.Account
         public string Nome { get; set; }
         public Email Email { get; set; }
         public Password Senha { get; set; }
-        public IList<Playlist> Playlists {get; set;}
+        public virtual IList<Playlist> Playlists {get; set;}
 
         public void SetPassword()
         {

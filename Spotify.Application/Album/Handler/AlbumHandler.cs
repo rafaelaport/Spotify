@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Spotify.Application.Album.Handler.Command;
+using Spotify.Application.Album.Handler.Query;
 using Spotify.Application.Album.Service;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Spotify.Application.Album.Handler
 {
-    public class AlbumHandler : IRequestHandler<CriarAlbumCommand, CriarAlbumCommandResponse>
+    public class AlbumHandler : IRequestHandler<CriarAlbumCommand, CriarAlbumCommandResponse>,
+                                IRequestHandler<ObterTodosAlbumQuery, ObterTodosAlbumQueryResponse>
     {
         private readonly IAlbumService _albumService;
 
@@ -23,6 +25,12 @@ namespace Spotify.Application.Album.Handler
             var result = await this._albumService.Criar(request.Album);
 
             return new CriarAlbumCommandResponse(result);
+        }
+
+        public async Task<ObterTodosAlbumQueryResponse> Handle(ObterTodosAlbumQuery request, CancellationToken cancellationToken)
+        {
+            var result = await this._albumService.ObterTodos();
+            return new ObterTodosAlbumQueryResponse(result);
         }
     }
 }

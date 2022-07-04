@@ -11,7 +11,7 @@ namespace Spotify.Domain.Account
     public class Playlist: Entity<Guid>
     {
         public string Nome { get; set; }
-        public IList<Musica> Musicas { get; set; }
+        public virtual IList<Musica> Musicas { get; set; }
 
     }
 }

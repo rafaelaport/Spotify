@@ -36,10 +36,9 @@ namespace Spotify.Domain.Album.ValueObject
 
             return $"{minutos.ToString().PadLeft(2, '0')}:{segundos.ToString().PadLeft(2, '0')}";
         }
-
-        //public override string ToString()
-        //{
-        //    return ValorFormatado();
-        //}
+        public override string ToString()
+        {
+            return ValorFormatado();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Spotify.Domain.Album;
+﻿using Microsoft.EntityFrameworkCore;
+using Spotify.Domain.Album;
 using Spotify.Domain.Album.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;
@@ -15,6 +16,11 @@ namespace Spotify.Repository.Repository
         public AlbumRepository(SpotifyContext context) : base(context)
         {
 
+        }
+
+        public async Task<IEnumerable<Album>> ObterTodosAlbuns()
+        {
+            return await this.Query.Include(x => x.Musicas).ToListAsync();
         }
     }
 }

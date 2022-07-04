@@ -12,6 +12,6 @@ namespace Spotify.Domain.Album
         public string Nome { get; set; }
         public DateTime DataLancamento { get; set; }
         public string CaminhoCapa { get; set; }
-        public IList<Musica> Musicas { get; set; }
+        public virtual IList<Musica> Musicas { get; set; }
     }
 }

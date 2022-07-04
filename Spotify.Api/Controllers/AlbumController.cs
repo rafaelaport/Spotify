@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Spotify.Application.Album.Dto;
 using Spotify.Application.Album.Handler.Command;
+using Spotify.Application.Album.Handler.Query;
 using Spotify.Domain.Album.Repository;
 
 namespace Spotify.Api.Controllers
@@ -17,11 +18,11 @@ namespace Spotify.Api.Controllers
             this.mediator = mediator;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Get()
-        //{
-        //    return Ok(await this.AlbumRepository.GetAll());
-        //}
+        [HttpGet]
+        public async Task<IActionResult> ObterTodos()
+        {
+            return Ok(await this.mediator.Send(new ObterTodosAlbumQuery()));
+        }
 
         [HttpPost]
         public async Task<IActionResult> Criar(AlbumInputDto dto)

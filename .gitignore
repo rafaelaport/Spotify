@@ -14,3 +14,5 @@
 /Spotify.Repository/obj
 /Spotify.Domain/bin/Debug/net6.0
 /Spotify.Domain/obj
+/Spotify.Test/bin/Debug/net6.0
+/Spotify.Test/obj

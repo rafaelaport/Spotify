@@ -29,7 +29,7 @@ namespace Spotify.Application.Album.Service
             return this.mapper.Map<AlbumOutputDto>(album);
         }
 
-        public async Task<List<AlbumOutputDto>> ObertTodos()
+        public async Task<List<AlbumOutputDto>> ObterTodos()
         {
             var result = await this.albumRepository.GetAll();
 
