@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Spotify.Domain\Spotify.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Album\Handler\Query\" />
-  </ItemGroup>
-
 </Project>

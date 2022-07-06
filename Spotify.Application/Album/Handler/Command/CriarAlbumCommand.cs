@@ -12,7 +12,6 @@ namespace Spotify.Application.Album.Handler.Command
     {
 
         public AlbumInputDto Album { get; set;}
-        public Guid IdBanda { get; set;}
 
         public CriarAlbumCommand(AlbumInputDto album)
         {

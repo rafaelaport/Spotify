@@ -30,7 +30,7 @@ namespace Spotify.Application.Album.Service
             return this.mapper.Map<BandaOutputDto>(banda);
         }
 
-        public async Task<List<BandaOutputDto>> ObertTodos()
+        public async Task<List<BandaOutputDto>> ObterTodos()
         {
             var result = await this.bandaRepository.GetAll();
 

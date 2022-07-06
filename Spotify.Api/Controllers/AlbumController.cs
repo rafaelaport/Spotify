@@ -7,7 +7,7 @@ using Spotify.Domain.Album.Repository;
 
 namespace Spotify.Api.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
     public class AlbumController : ControllerBase
     {
@@ -19,12 +19,14 @@ namespace Spotify.Api.Controllers
         }
 
         [HttpGet]
+        [Route("album/obter-todos")]
         public async Task<IActionResult> ObterTodos()
         {
             return Ok(await this.mediator.Send(new ObterTodosAlbumQuery()));
         }
 
         [HttpPost]
+        [Route("album/criar")]
         public async Task<IActionResult> Criar(AlbumInputDto dto)
         {
             var result = await this.mediator.Send(new CriarAlbumCommand(dto));

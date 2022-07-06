@@ -3,7 +3,6 @@ using Spotify.Domain.Account.Repository;
 
 namespace Spotify.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -15,6 +14,7 @@ namespace Spotify.Api.Controllers
         }
 
         [HttpGet]
+        [Route("usuario/obter-todos")]
         public async Task<IActionResult> Get()
         {
             return Ok(await this.UsuarioRepository.GetAll());

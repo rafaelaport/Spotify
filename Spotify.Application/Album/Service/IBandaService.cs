@@ -5,6 +5,6 @@ namespace Spotify.Application.Album.Service
     public interface IBandaService
     {
         Task<BandaOutputDto> Criar(BandaInputDto dto);
-        Task<List<BandaOutputDto>> ObertTodos();
+        Task<List<BandaOutputDto>> ObterTodos();
     }
 }
