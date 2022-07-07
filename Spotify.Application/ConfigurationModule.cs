@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Spotify.Application.Account.Service;
 using Spotify.Application.Album.Service;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Spotify.Application
 
             services.AddScoped<IBandaService, BandaService>();
             services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             return services;
         }

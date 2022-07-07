@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Spotify.Application.Account.Dto;
+using Spotify.Application.Account.Handler.Command;
+using Spotify.Application.Account.Handler.Query;
 using Spotify.Domain.Account.Repository;
 
 namespace Spotify.Api.Controllers
@@ -6,18 +10,26 @@ namespace Spotify.Api.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        public IUsuarioRepository UsuarioRepository { get; }
+        private readonly IMediator mediator;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        public UsuarioController(IMediator mediator)
         {
-            UsuarioRepository = usuarioRepository;
+            this.mediator = mediator;
         }
 
         [HttpGet]
         [Route("usuario/obter-todos")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> ObterTodos()
         {
-            return Ok(await this.UsuarioRepository.GetAll());
+            return Ok(await this.mediator.Send(new ObterTodosUsuarioQuery()));
+        }
+
+        [HttpPost]
+        [Route("usuario/criar")]
+        public async Task<IActionResult> Criar(UsuarioInputDto dto)
+        {
+            var result = await this.mediator.Send(new CriarUsuarioCommand(dto));
+            return Created($"{result.Usuario.Id}", result.Usuario);
         }
     }
 }
