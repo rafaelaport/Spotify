@@ -22,7 +22,8 @@ namespace Spotify.Api.Controllers
         [Route("album/obter-todos")]
         public async Task<IActionResult> ObterTodos()
         {
-            return Ok(await this.mediator.Send(new ObterTodosAlbumQuery()));
+            var temp = await this.mediator.Send(new ObterTodosAlbumQuery());
+            return Ok(temp);
         }
 
         [HttpPost]
