@@ -6,5 +6,6 @@ namespace Spotify.Application.Album.Service
     {
         Task<AlbumOutputDto> Criar(AlbumInputDto dto);
         Task<List<AlbumOutputDto>> ObterTodos();
+        Task<AlbumOutputDto> ObterPorId(Guid id);
     }
 }

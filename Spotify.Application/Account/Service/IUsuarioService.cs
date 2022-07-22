@@ -6,5 +6,6 @@ namespace Spotify.Application.Account.Service
     {
         Task<UsuarioOutputDto> Criar(UsuarioInputDto dto);
         Task<List<UsuarioOutputDto>> ObterTodos();
+        Task<UsuarioOutputDto> ObterPorId(Guid id);
     }
 }

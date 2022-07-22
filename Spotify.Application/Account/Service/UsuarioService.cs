@@ -37,5 +37,12 @@ namespace Spotify.Application.Account.Service
             return mapper.Map<List<UsuarioOutputDto>>(result);
         }
 
+        public async Task<UsuarioOutputDto> ObterPorId(Guid id)
+        {
+            var result = await usuarioRepository.Get(id);
+
+            return mapper.Map<UsuarioOutputDto>(result);
+        }
+
     }
 }

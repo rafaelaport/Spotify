@@ -24,7 +24,7 @@ namespace Spotify.Application.Album.Service
         public async Task<BandaOutputDto> Criar(BandaInputDto dto)
         {
             var banda = this.mapper.Map<Banda>(dto);
-
+            //banda.CriarAlbum(banda.Nome,);
             await this.bandaRepository.Save(banda);
 
             return this.mapper.Map<BandaOutputDto>(banda);
@@ -35,6 +35,13 @@ namespace Spotify.Application.Album.Service
             var result = await this.bandaRepository.GetAll();
 
             return this.mapper.Map<List<BandaOutputDto>>(result);
+        }
+
+        public async Task<BandaOutputDto> ObterPorId(Guid id)
+        {
+            var result = await this.bandaRepository.Get(id);
+
+            return this.mapper.Map<BandaOutputDto>(result);
         }
     }
 }

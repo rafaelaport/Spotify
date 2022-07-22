@@ -35,5 +35,12 @@ namespace Spotify.Application.Album.Service
 
             return this.mapper.Map<List<AlbumOutputDto>>(result);
         }
+
+        public async Task<AlbumOutputDto> ObterPorId(Guid id)
+        {
+            var result = await this.albumRepository.Get(id);
+
+            return this.mapper.Map<AlbumOutputDto>(result);
+        }
     }
 }

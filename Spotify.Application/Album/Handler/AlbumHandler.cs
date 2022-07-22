@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 namespace Spotify.Application.Album.Handler
 {
     public class AlbumHandler : IRequestHandler<CriarAlbumCommand, CriarAlbumCommandResponse>,
-                                IRequestHandler<ObterTodosAlbumQuery, ObterTodosAlbumQueryResponse>
+                                IRequestHandler<ObterTodosAlbumQuery, ObterTodosAlbumQueryResponse>,
+                                IRequestHandler<ObterPorIdAlbumQuery, ObterPorIdAlbumQueryResponse>
     {
         private readonly IAlbumService _albumService;
 
@@ -31,6 +32,12 @@ namespace Spotify.Application.Album.Handler
         {
             var result = await this._albumService.ObterTodos();
             return new ObterTodosAlbumQueryResponse(result);
+        }
+
+        public async Task<ObterPorIdAlbumQueryResponse> Handle(ObterPorIdAlbumQuery request, CancellationToken cancellationToken)
+        {
+            var result = await this._albumService.ObterPorId(request.Id);
+            return new ObterPorIdAlbumQueryResponse(result);
         }
     }
 }

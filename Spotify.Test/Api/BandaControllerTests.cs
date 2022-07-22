@@ -66,5 +66,41 @@ namespace Spotify.Test.Api
             Assert.NotNull(response.Bandas);
 
         }
+
+        [Fact]
+        public async Task DeveBuscarBandaPorIdComSucesso()
+        {
+            Mock<IMediator> mockMediator = new Mock<IMediator>();
+            Mock<IBandaRepository> mockRepository = new Mock<IBandaRepository>();
+            Mock<IMapper> mockMapper = new Mock<IMapper>();
+            var id = Guid.NewGuid();
+
+            Banda banda = new Banda()
+            {
+                Nome = "Banda 1",
+                CaminhoFoto = "https://xpto.com/foto.png",
+                Descricao = "Lorem ipsum da banda 1"
+            };
+
+            BandaOutputDto bandaOutputDto = new BandaOutputDto(id, "Banda 1", "https://xpto.com/foto.png", "Lorem ipsum da banda 1");
+
+            mockRepository.Setup(x => x.Get(id)).ReturnsAsync(banda);
+            mockMapper.Setup(x => x.Map<BandaOutputDto>(banda)).Returns(bandaOutputDto);
+
+            var service = new BandaService(mockRepository.Object, mockMapper.Object);
+            var result = await service.ObterPorId(id);
+
+            mockMediator.Setup(x => x.Send(It.IsAny<ObterPorIdBandaQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(new ObterPorIdBandaQueryResponse(result));
+
+            var controller = new BandaController(mockMediator.Object);
+            var resultController = controller.ObterPorId(id);
+
+            var okObjectResult = (OkObjectResult)resultController.Result;
+            Assert.NotNull(okObjectResult);
+
+            var response = okObjectResult.Value as ObterPorIdBandaQueryResponse;
+            Assert.NotNull(response.Banda);
+
+        }
     }
 }

@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 namespace Spotify.Application.Album.Handler
 {
     public class BandaHandler : IRequestHandler<CriarBandaCommand, CriarBandaCommandResponse>,
-                                IRequestHandler<ObterTodosBandaQuery, ObterTodosBandaQueryResponse>
+                                IRequestHandler<ObterTodosBandaQuery, ObterTodosBandaQueryResponse>,
+                                IRequestHandler<ObterPorIdBandaQuery, ObterPorIdBandaQueryResponse>
     {
 
         private readonly IBandaService _bandaService;
@@ -25,6 +26,12 @@ namespace Spotify.Application.Album.Handler
         {
             var result = await _bandaService.ObterTodos();
             return new ObterTodosBandaQueryResponse(result);
+        }
+
+        public async Task<ObterPorIdBandaQueryResponse> Handle(ObterPorIdBandaQuery request, CancellationToken cancellationToken)
+        {
+            var result = await _bandaService.ObterPorId(request.Id);
+            return new ObterPorIdBandaQueryResponse(result);
         }
 
         public async Task<CriarBandaCommandResponse> Handle(CriarBandaCommand request, CancellationToken cancellationToken)

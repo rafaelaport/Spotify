@@ -26,6 +26,14 @@ namespace Spotify.Api.Controllers
             return Ok(temp);
         }
 
+        [HttpGet]
+        [Route("album/obter-por-id/{id}")]
+        public async Task<IActionResult> ObterPorId(Guid id)
+        {
+            var temp = await this.mediator.Send(new ObterPorIdAlbumQuery(id));
+            return Ok(temp);
+        }
+
         [HttpPost]
         [Route("album/criar")]
         public async Task<IActionResult> Criar(AlbumInputDto dto)
