@@ -29,6 +29,25 @@ namespace Spotify.Application.Album.Service
             return this.mapper.Map<AlbumOutputDto>(album);
         }
 
+        public async Task<AlbumOutputDto> Editar(Guid id, AlbumInputDto dto)
+        {
+            var album = this.mapper.Map<Spotify.Domain.Album.Album>(dto);
+            album.Id = id;
+                        
+            await this.albumRepository.Update(album);
+
+            return this.mapper.Map<AlbumOutputDto>(album);
+        }
+
+        public async Task<AlbumOutputDto> Excluir(Guid id)
+        {
+            var album = await this.albumRepository.Get(id);
+
+            await this.albumRepository.Delete(album);
+
+            return this.mapper.Map<AlbumOutputDto>(album);
+        }
+
         public async Task<List<AlbumOutputDto>> ObterTodos()
         {
             var result = await this.albumRepository.GetAll();

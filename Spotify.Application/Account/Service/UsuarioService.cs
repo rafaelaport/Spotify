@@ -25,9 +25,34 @@ namespace Spotify.Application.Account.Service
         {
             var usuario = mapper.Map<Usuario>(dto);
 
+            usuario.Validate();
+            usuario.SetPassword();
+
             await usuarioRepository.Save(usuario);
 
             return mapper.Map<UsuarioOutputDto>(usuario);
+        }
+
+        public async Task<UsuarioOutputDto> Editar(Guid id, UsuarioInputDto dto)
+        {
+            var usuario = this.mapper.Map<Usuario>(dto);
+            usuario.Id = id;
+
+            usuario.Validate();
+            usuario.SetPassword();
+
+            await this.usuarioRepository.Update(usuario);
+
+            return this.mapper.Map<UsuarioOutputDto>(usuario);
+        }
+
+        public async Task<UsuarioOutputDto> Excluir(Guid id)
+        {
+            var usuario = await this.usuarioRepository.Get(id);
+
+            await this.usuarioRepository.Delete(usuario);
+
+            return this.mapper.Map<UsuarioOutputDto>(usuario);
         }
 
         public async Task<List<UsuarioOutputDto>> ObterTodos()

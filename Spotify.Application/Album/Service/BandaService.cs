@@ -30,6 +30,25 @@ namespace Spotify.Application.Album.Service
             return this.mapper.Map<BandaOutputDto>(banda);
         }
 
+        public async Task<BandaOutputDto> Editar(Guid id, BandaInputDto dto)
+        {
+            var banda = this.mapper.Map<Banda>(dto);
+            banda.Id = id;
+
+            await this.bandaRepository.Update(banda);
+
+            return this.mapper.Map<BandaOutputDto>(banda);
+        }
+
+        public async Task<BandaOutputDto> Excluir(Guid id)
+        {
+            var banda = await this.bandaRepository.Get(id);
+
+            await this.bandaRepository.Delete(banda);
+
+            return this.mapper.Map<BandaOutputDto>(banda);
+        }
+
         public async Task<List<BandaOutputDto>> ObterTodos()
         {
             var result = await this.bandaRepository.GetAll();

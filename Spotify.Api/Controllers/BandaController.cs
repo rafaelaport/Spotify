@@ -38,5 +38,21 @@ namespace Spotify.Api.Controllers
             var result = await this.mediator.Send(new CriarBandaCommand(dto));
             return Created($"{result.Banda.Id}", result.Banda);
         }
+
+        [HttpPut]
+        [Route("banda/editar/{id}")]
+        public async Task<IActionResult> Editar(Guid id, [FromBody] BandaInputDto dto)
+        {
+            var result = await this.mediator.Send(new EditarBandaCommand(id, dto));
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        [Route("banda/excluir/{id}")]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            var result = await this.mediator.Send(new ExcluirBandaCommand(id));
+            return Ok(result);
+        }
     }
 }

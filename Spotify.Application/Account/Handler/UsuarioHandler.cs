@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 namespace Spotify.Application.Account.Handler
 {
     public class UsuarioHandler : IRequestHandler<CriarUsuarioCommand, CriarUsuarioCommandResponse>,
+                                  IRequestHandler<EditarUsuarioCommand, EditarUsuarioCommandResponse>,
+                                  IRequestHandler<ExcluirUsuarioCommand, ExcluirUsuarioCommandResponse>,
                                   IRequestHandler<ObterTodosUsuarioQuery, ObterTodosUsuarioQueryResponse>,
                                   IRequestHandler<ObterPorIdUsuarioQuery, ObterPorIdUsuarioQueryResponse>
     {
@@ -26,6 +28,20 @@ namespace Spotify.Application.Account.Handler
             var result = await usuarioService.Criar(request.Usuario);
 
             return new CriarUsuarioCommandResponse(result);
+        }
+
+        public async Task<EditarUsuarioCommandResponse> Handle(EditarUsuarioCommand request, CancellationToken cancellationToken)
+        {
+            var result = await usuarioService.Editar(request.Id, request.Usuario);
+
+            return new EditarUsuarioCommandResponse(result);
+        }
+
+        public async Task<ExcluirUsuarioCommandResponse> Handle(ExcluirUsuarioCommand request, CancellationToken cancellationToken)
+        {
+            var result = await usuarioService.Excluir(request.Id);
+
+            return new ExcluirUsuarioCommandResponse(result);
         }
 
         public async Task<ObterTodosUsuarioQueryResponse> Handle(ObterTodosUsuarioQuery request, CancellationToken cancellationToken)

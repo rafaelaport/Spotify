@@ -22,16 +22,16 @@ namespace Spotify.Api.Controllers
         [Route("album/obter-todos")]
         public async Task<IActionResult> ObterTodos()
         {
-            var temp = await this.mediator.Send(new ObterTodosAlbumQuery());
-            return Ok(temp);
+            var result = await this.mediator.Send(new ObterTodosAlbumQuery());
+            return Ok(result);
         }
 
         [HttpGet]
         [Route("album/obter-por-id/{id}")]
         public async Task<IActionResult> ObterPorId(Guid id)
         {
-            var temp = await this.mediator.Send(new ObterPorIdAlbumQuery(id));
-            return Ok(temp);
+            var result = await this.mediator.Send(new ObterPorIdAlbumQuery(id));
+            return Ok(result);
         }
 
         [HttpPost]
@@ -42,5 +42,20 @@ namespace Spotify.Api.Controllers
             return Created($"{result.Album.Id}", result.Album);
         }
 
+        [HttpPut]
+        [Route("album/editar/{id}")]
+        public async Task<IActionResult> Editar(Guid id, [FromBody] AlbumInputDto dto)
+        {
+            var result = await this.mediator.Send(new EditarAlbumCommand(id, dto));
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        [Route("album/excluir/{id}")]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            var result = await this.mediator.Send(new ExcluirAlbumCommand(id));
+            return Ok(result);
+        }
     }
 }

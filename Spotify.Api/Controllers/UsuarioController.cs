@@ -38,5 +38,21 @@ namespace Spotify.Api.Controllers
             var result = await this.mediator.Send(new CriarUsuarioCommand(dto));
             return Created($"{result.Usuario.Id}", result.Usuario);
         }
+
+        [HttpPut]
+        [Route("usuario/editar/{id}")]
+        public async Task<IActionResult> Editar(Guid id, [FromBody] UsuarioInputDto dto)
+        {
+            var result = await this.mediator.Send(new EditarUsuarioCommand(id, dto));
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        [Route("usuario/excluir/{id}")]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            var result = await this.mediator.Send(new ExcluirUsuarioCommand(id));
+            return Ok(result);
+        }
     }
 }
