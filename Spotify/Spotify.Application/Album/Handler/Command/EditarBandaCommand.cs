@@ -10,12 +10,10 @@ namespace Spotify.Application.Album.Handler.Command
 {
     public class EditarBandaCommand : IRequest<EditarBandaCommandResponse>
     {
-        public Guid Id { get; set; }
-        public BandaInputDto Banda { get; set; }
+        public BandaUpdateDto Banda { get; set; }
 
-        public EditarBandaCommand(Guid id, BandaInputDto banda)
+        public EditarBandaCommand(BandaUpdateDto banda)
         {
-            Id = id;
             Banda = banda;
         }
     }

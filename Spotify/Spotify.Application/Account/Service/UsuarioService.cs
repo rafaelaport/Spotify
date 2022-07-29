@@ -33,10 +33,9 @@ namespace Spotify.Application.Account.Service
             return mapper.Map<UsuarioOutputDto>(usuario);
         }
 
-        public async Task<UsuarioOutputDto> Editar(Guid id, UsuarioInputDto dto)
+        public async Task<UsuarioOutputDto> Editar(UsuarioUpdateDto dto)
         {
             var usuario = this.mapper.Map<Usuario>(dto);
-            usuario.Id = id;
 
             usuario.Validate();
             usuario.SetPassword();

@@ -10,12 +10,10 @@ namespace Spotify.Application.Account.Handler.Command
 {
     public class EditarUsuarioCommand : IRequest<EditarUsuarioCommandResponse>
     {
-        public Guid Id { get; set; }
-        public UsuarioInputDto Usuario { get; set; }
+        public UsuarioUpdateDto Usuario { get; set; }
 
-        public EditarUsuarioCommand(Guid id, UsuarioInputDto usuario)
+        public EditarUsuarioCommand(UsuarioUpdateDto usuario)
         {
-            Id = id;
             Usuario = usuario;
         }
     }

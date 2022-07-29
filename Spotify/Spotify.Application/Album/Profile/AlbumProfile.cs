@@ -18,13 +18,20 @@ namespace Spotify.Application.Album.Profile
             CreateMap<MusicaInputDto, Musica>()
                 .ForPath(x => x.Duracao.Valor, f => f.MapFrom(m => m.Duracao));
 
+            CreateMap<MusicaUpdateDto, Musica>()
+                .ForPath(x => x.Duracao.Valor, f => f.MapFrom(m => m.Duracao));
+
             CreateMap<Spotify.Domain.Album.Album, AlbumOutputDto>();
 
             CreateMap<AlbumInputDto, Spotify.Domain.Album.Album>();
 
+            CreateMap<AlbumUpdateDto, Spotify.Domain.Album.Album>();
+
             CreateMap<Banda, BandaOutputDto>();
 
             CreateMap<BandaInputDto, Banda>();
+
+            CreateMap<BandaUpdateDto, Banda>();
 
         }
     }

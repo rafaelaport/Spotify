@@ -29,10 +29,9 @@ namespace Spotify.Application.Album.Service
             return this.mapper.Map<AlbumOutputDto>(album);
         }
 
-        public async Task<AlbumOutputDto> Editar(Guid id, AlbumInputDto dto)
+        public async Task<AlbumOutputDto> Editar(AlbumUpdateDto dto)
         {
             var album = this.mapper.Map<Spotify.Domain.Album.Album>(dto);
-            album.Id = id;
                         
             await this.albumRepository.Update(album);
 

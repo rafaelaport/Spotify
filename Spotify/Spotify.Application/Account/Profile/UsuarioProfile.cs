@@ -14,9 +14,11 @@ namespace Spotify.Application.Account.Profile
         {
             CreateMap<Usuario, UsuarioOutputDto>();
             CreateMap<UsuarioInputDto, Usuario>();
+            CreateMap<UsuarioUpdateDto, Usuario>();
 
             CreateMap<Playlist, PlaylistOutputDto>();
             CreateMap<PlaylistInputDto, Playlist>();
+            CreateMap<PlaylistUpdateDto, Playlist>();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Spotify.Application.Album.Handler
 
         public async Task<EditarAlbumCommandResponse> Handle(EditarAlbumCommand request, CancellationToken cancellationToken)
         {
-            var result = await this._albumService.Editar(request.Id, request.Album);
+            var result = await this._albumService.Editar(request.Album);
 
             return new EditarAlbumCommandResponse(result);
         }

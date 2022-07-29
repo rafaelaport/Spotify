@@ -32,7 +32,7 @@ namespace Spotify.Application.Account.Handler
 
         public async Task<EditarUsuarioCommandResponse> Handle(EditarUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var result = await usuarioService.Editar(request.Id, request.Usuario);
+            var result = await usuarioService.Editar(request.Usuario);
 
             return new EditarUsuarioCommandResponse(result);
         }

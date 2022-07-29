@@ -44,7 +44,7 @@ namespace Spotify.Application.Album.Handler
 
         public async Task<EditarBandaCommandResponse> Handle(EditarBandaCommand request, CancellationToken cancellationToken)
         {
-            var result = await this._bandaService.Editar(request.Id, request.Banda);
+            var result = await this._bandaService.Editar(request.Banda);
 
             return new EditarBandaCommandResponse(result);
         }

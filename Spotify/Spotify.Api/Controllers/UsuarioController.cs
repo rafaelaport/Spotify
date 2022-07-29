@@ -40,10 +40,10 @@ namespace Spotify.Api.Controllers
         }
 
         [HttpPut]
-        [Route("usuario/editar/{id}")]
-        public async Task<IActionResult> Editar(Guid id, [FromBody] UsuarioInputDto dto)
+        [Route("usuario/editar")]
+        public async Task<IActionResult> Editar([FromBody] UsuarioUpdateDto dto)
         {
-            var result = await this.mediator.Send(new EditarUsuarioCommand(id, dto));
+            var result = await this.mediator.Send(new EditarUsuarioCommand(dto));
             return Ok(result);
         }
 

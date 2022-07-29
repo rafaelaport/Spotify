@@ -24,16 +24,15 @@ namespace Spotify.Application.Album.Service
         public async Task<BandaOutputDto> Criar(BandaInputDto dto)
         {
             var banda = this.mapper.Map<Banda>(dto);
-            //banda.CriarAlbum(banda.Nome,);
+           
             await this.bandaRepository.Save(banda);
 
             return this.mapper.Map<BandaOutputDto>(banda);
         }
 
-        public async Task<BandaOutputDto> Editar(Guid id, BandaInputDto dto)
+        public async Task<BandaOutputDto> Editar(BandaUpdateDto dto)
         {
             var banda = this.mapper.Map<Banda>(dto);
-            banda.Id = id;
 
             await this.bandaRepository.Update(banda);
 
