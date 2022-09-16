@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Spotify.Application;
+using Spotify.Infrastructure;
 using Spotify.Repository;
 
 namespace Spotify.Api
@@ -16,6 +17,7 @@ namespace Spotify.Api
 
             builder.Services
                 .RegisterApplication()
+                .RegisterInfrastructure()
                 .RegisterRepository(builder.Configuration.GetConnectionString("Spotify"));
 
 

@@ -52,10 +52,10 @@ namespace Spotify.Test.Api
             mockRepository.Setup(x => x.GetAll()).ReturnsAsync(album.AsEnumerable());
             mockMapper.Setup(x => x.Map<List<AlbumOutputDto>>(album)).Returns(albumOutputDto);
 
-            var service = new AlbumService(mockRepository.Object, mockMapper.Object);
-            var result = await service.ObterTodos();
+            //var service = new AlbumService(mockRepository.Object, mockMapper.Object);
+            //var result = await service.ObterTodos();
 
-            mockMediator.Setup(x => x.Send(It.IsAny<ObterTodosAlbumQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(new ObterTodosAlbumQueryResponse(result));
+           // mockMediator.Setup(x => x.Send(It.IsAny<ObterTodosAlbumQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(new ObterTodosAlbumQueryResponse(result));
 
             var controller = new AlbumController(mockMediator.Object);
             var resultController = controller.ObterTodos();
@@ -104,10 +104,10 @@ namespace Spotify.Test.Api
             mockRepository.Setup(x => x.Get(id)).ReturnsAsync(album);
             mockMapper.Setup(x => x.Map<AlbumOutputDto>(album)).Returns(albumOutputDto);
 
-            var service = new AlbumService(mockRepository.Object, mockMapper.Object);
-            var result = await service.ObterPorId(id);
+            //var service = new AlbumService(mockRepository.Object, mockMapper.Object);
+            //var result = await service.ObterPorId(id);
 
-            mockMediator.Setup(x => x.Send(It.IsAny<ObterPorIdAlbumQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(new ObterPorIdAlbumQueryResponse(result));
+            //mockMediator.Setup(x => x.Send(It.IsAny<ObterPorIdAlbumQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(new ObterPorIdAlbumQueryResponse(result));
 
             var controller = new AlbumController(mockMediator.Object);
             var resultController = controller.ObterPorId(id);

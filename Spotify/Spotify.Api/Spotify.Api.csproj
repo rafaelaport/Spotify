@@ -13,11 +13,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Spotify.Domain\Spotify.Domain.csproj" />
     <ProjectReference Include="..\Spotify.Application\Spotify.Application.csproj" />
+    <ProjectReference Include="..\Spotify.Infrastructure\Spotify.Infrastructure.csproj" />
     <ProjectReference Include="..\Spotify.Repository\Spotify.Repository.csproj" />
   </ItemGroup>
 

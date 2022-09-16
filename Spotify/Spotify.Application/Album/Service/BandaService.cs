@@ -2,6 +2,7 @@
 using Spotify.Application.Album.Dto;
 using Spotify.Domain.Album;
 using Spotify.Domain.Album.Repository;
+using Spotify.Infrastructure.AzureBlobStorage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,40 @@ namespace Spotify.Application.Album.Service
         private readonly IBandaRepository bandaRepository;
         private readonly IMapper mapper;
 
-        public BandaService(IBandaRepository bandaRepository, IMapper mapper)
+        private IHttpClientFactory httpClientFactory;
+        private AzureBlobStorage storage;
+
+        public BandaService(IBandaRepository bandaRepository, 
+                            IMapper mapper, 
+                            AzureBlobStorage storage,
+                            IHttpClientFactory httpClientFactory)
         {
             this.bandaRepository = bandaRepository;
             this.mapper = mapper;
+            this.storage = storage;
+            this.httpClientFactory = httpClientFactory;
         }
 
         public async Task<BandaOutputDto> Criar(BandaInputDto dto)
         {
             var banda = this.mapper.Map<Banda>(dto);
-           
+
+            HttpClient httpClient = this.httpClientFactory.CreateClient();
+
+            using var response = await httpClient.GetAsync(banda.CaminhoFoto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                using var stream = await response.Content.ReadAsStreamAsync();
+
+                var fileName = $"{Guid.NewGuid()}.jpg";
+
+                var pathStorage = await this.storage.UploadFile(fileName, stream);
+
+                banda.CaminhoFoto = pathStorage;
+
+            }
+
             await this.bandaRepository.Save(banda);
 
             return this.mapper.Map<BandaOutputDto>(banda);

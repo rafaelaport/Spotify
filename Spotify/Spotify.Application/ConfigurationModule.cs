@@ -17,6 +17,8 @@ namespace Spotify.Application
             services.AddAutoMapper(typeof(Application.ConfigurationModule).Assembly);
             services.AddMediatR(typeof(Application.ConfigurationModule).Assembly);
 
+            services.AddHttpClient();
+
             services.AddScoped<IBandaService, BandaService>();
             services.AddScoped<IAlbumService, AlbumService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
