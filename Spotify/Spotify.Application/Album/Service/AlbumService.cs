@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Spotify.Application.Album.Dto;
 using System.Net.Http;
-using Spotify.Domain.Album.Repository;
+using Spotify.Domain.Streaming.Repository;
 using Spotify.Infrastructure.AzureBlobStorage;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace Spotify.Application.Album.Service
 
         public async Task<AlbumOutputDto> Criar(AlbumInputDto dto)
         {
-            var album = this.mapper.Map<Spotify.Domain.Album.Album>(dto);
+            var album = this.mapper.Map<Spotify.Domain.Streaming.Album>(dto);
 
             HttpClient httpClient = this.httpClientFactory.CreateClient();
 
@@ -57,7 +57,7 @@ namespace Spotify.Application.Album.Service
 
         public async Task<AlbumOutputDto> Editar(AlbumUpdateDto dto)
         {
-            var album = this.mapper.Map<Spotify.Domain.Album.Album>(dto);
+            var album = this.mapper.Map<Spotify.Domain.Streaming.Album>(dto);
                         
             await this.albumRepository.Update(album);
 

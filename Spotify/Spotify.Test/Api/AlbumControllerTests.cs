@@ -6,9 +6,9 @@ using Spotify.Api.Controllers;
 using Spotify.Application.Album.Dto;
 using Spotify.Application.Album.Handler.Query;
 using Spotify.Application.Album.Service;
-using Spotify.Domain.Album;
-using Spotify.Domain.Album.Repository;
-using Spotify.Domain.Album.ValueObject;
+using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Repository;
+using Spotify.Domain.Streaming.ValueObject;
 
 namespace Spotify.Test.Api
 {

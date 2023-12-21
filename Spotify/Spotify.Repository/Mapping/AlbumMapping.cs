@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Spotify.Domain.Album;
+using Spotify.Domain.Streaming;
 using System;
 using System.Collections.Generic;
 using System.Linq;

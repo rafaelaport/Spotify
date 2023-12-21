@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Spotify.Application.Album.Dto;
 using Spotify.Application.Album.Handler.Command;
 using Spotify.Application.Album.Handler.Query;
-using Spotify.Domain.Album.Repository;
+using Spotify.Domain.Streaming.Repository;
 
 namespace Spotify.Api.Controllers
 {

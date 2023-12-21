@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Spotify.Domain.Album;
+using Spotify.Domain.Streaming;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Spotify.Repository.Mapping
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(200);
 
-            builder.HasMany(x => x.Albuns).WithOne().OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x => x.Albums).WithOne().OnDelete(DeleteBehavior.Cascade);
 
         }
     }

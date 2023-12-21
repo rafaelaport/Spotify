@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Spotify.Application.Album.Dto;
-using Spotify.Domain.Album;
-using Spotify.Domain.Album.Repository;
+using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Repository;
 using Spotify.Infrastructure.AzureBlobStorage;
 using System;
 using System.Collections.Generic;

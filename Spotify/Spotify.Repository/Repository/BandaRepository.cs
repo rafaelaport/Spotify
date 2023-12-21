@@ -1,5 +1,5 @@
-﻿using Spotify.Domain.Album;
-using Spotify.Domain.Album.Repository;
+﻿using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;
 using System;

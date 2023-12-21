@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Spotify.Domain.Account.Repository;
-using Spotify.Domain.Album.Repository;
+using Spotify.Domain.Streaming.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;
 using Spotify.Repository.Repository;
