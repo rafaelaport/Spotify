@@ -2,7 +2,7 @@
 using Moq;
 using Spotify.Application.Album.Dto;
 using Spotify.Application.Album.Service;
-using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Streaming.Repository;
 using System;
 using System.Collections.Generic;

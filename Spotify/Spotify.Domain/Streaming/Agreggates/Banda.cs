@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Domain.Streaming
+namespace Spotify.Domain.Streaming.Agreggates
 {
-    public class Banda: Entity<Guid>
+    public class Banda : Entity<Guid>
     {
         public string Nome { get; set; }
         public string CaminhoFoto { get; set; }
@@ -16,6 +16,6 @@ namespace Spotify.Domain.Streaming
         public List<Album> Albums { get; set; } = new List<Album>();
 
         public void AdicionarAlbum(Album album) =>
-            this.Albums.Add(album);
+            Albums.Add(album);
     }
 }

@@ -4,8 +4,8 @@ using Spotify.CrossCutting.Utils;
 using Spotify.Domain.Account.Rules;
 using Spotify.Domain.Account.ValueObject;
 using Spotify.Domain.Core.ValueObject;
-using Spotify.Domain.Streaming;
-using Spotify.Domain.Transacao;
+using Spotify.Domain.Streaming.Agreggates;
+using Spotify.Domain.Transacao.Agreggates;
 using Spotify.Domain.Transacao.ValueObject;
 using System;
 using System.Collections.Generic;
@@ -13,9 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Domain.Account
+namespace Spotify.Domain.Account.Agreggates
 {
-    public class Usuario: Entity<Guid>
+    public class Usuario : Entity<Guid>
     {
         private const string NOME_PLAYLIST = "Favoritas";
 
@@ -30,28 +30,28 @@ namespace Spotify.Domain.Account
 
         public void CriarConta(string nome, Email email, string senha, DateTime dtNascimento, Plano plano, Cartao cartao)
         {
-            this.Nome = nome;
-            this.Email = email;
-            this.DtNascimento = dtNascimento;
+            Nome = nome;
+            Email = email;
+            DtNascimento = dtNascimento;
 
             //Criptografar a senha
-            this.SetPassword();
+            SetPassword();
 
             //Assinar um plano
-            this.AssinarPlano(plano, cartao);
+            AssinarPlano(plano, cartao);
 
             //Adicionar cartão na conta do usuário
-            this.AdicionarCartao(cartao);
+            AdicionarCartao(cartao);
 
             //Criar a playlist padrão do usuario
-            this.CriarPlaylist(nome: NOME_PLAYLIST, publica: false);
+            CriarPlaylist(nome: NOME_PLAYLIST, publica: false);
 
 
         }
 
         public void CriarPlaylist(string nome, bool publica = true)
         {
-            this.Playlists.Add(new Playlist()
+            Playlists.Add(new Playlist()
             {
                 Nome = nome,
                 Publica = publica,
@@ -61,7 +61,7 @@ namespace Spotify.Domain.Account
         }
 
         private void AdicionarCartao(Cartao cartao)
-            => this.Cartoes.Add(cartao);
+            => Cartoes.Add(cartao);
 
         private void AssinarPlano(Plano plano, Cartao cartao)
         {
@@ -72,7 +72,7 @@ namespace Spotify.Domain.Account
             DesativarAssinaturaAtiva();
 
             //Adiciona uma nova assinatura
-            this.Assinaturas.Add(new Assinatura()
+            Assinaturas.Add(new Assinatura()
             {
                 Ativo = true,
                 Plano = plano,
@@ -84,16 +84,16 @@ namespace Spotify.Domain.Account
         private void DesativarAssinaturaAtiva()
         {
             //Caso tenha alguma assintura ativa, deseativa ela
-            if (this.Assinaturas.Count > 0 && this.Assinaturas.Any(x => x.Ativo))
+            if (Assinaturas.Count > 0 && Assinaturas.Any(x => x.Ativo))
             {
-                var planoAtivo = this.Assinaturas.FirstOrDefault(x => x.Ativo);
+                var planoAtivo = Assinaturas.FirstOrDefault(x => x.Ativo);
                 planoAtivo.Ativo = false;
             }
         }
 
         public void SetPassword()
         {
-            this.Senha.Valor = SecurityUtils.HashSHA1(this.Senha.Valor);
+            Senha.Valor = SecurityUtils.HashSHA1(Senha.Valor);
         }
 
         public void Validate() =>

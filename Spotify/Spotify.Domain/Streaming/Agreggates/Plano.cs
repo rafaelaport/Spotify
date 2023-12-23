@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Domain.Streaming
+namespace Spotify.Domain.Streaming.Agreggates
 {
     public class Plano : Entity<Guid>
     {
-        public String Nome { get; set; }
-        public String Descricao { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
         public Monetario Valor { get; set; }
     }
 }

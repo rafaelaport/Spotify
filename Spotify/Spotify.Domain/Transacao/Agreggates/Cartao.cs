@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Domain.Transacao
+namespace Spotify.Domain.Transacao.Agreggates
 {
     public class Cartao : Entity<Guid>
     {
         private const int INTERVALO_TRANSACAO = -2;
         private const int REPETICAO_TRANSACAO_MERCHANT = 1;
 
-        public Boolean Ativo { get; set; }
+        public bool Ativo { get; set; }
         public Monetario Limite { get; set; }
-        public String Numero { get; set; }
+        public string Numero { get; set; }
         public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
 
         public void CriarTransacao(Merchant merchant, Monetario valor, string Descricao = "")
         {
             //Verificar se o cartão está ativo
-            this.IsCartaoAtivo();
+            IsCartaoAtivo();
 
             Transacao transacao = new Transacao();
             transacao.Merchant = merchant;
@@ -31,24 +31,24 @@ namespace Spotify.Domain.Transacao
             transacao.DtTransacao = DateTime.Now;
 
             //Verifica limite disponivel
-            this.VerificaLimite(transacao);
+            VerificaLimite(transacao);
 
             //Verifica regras antifraude
-            this.ValidarTransacao(transacao);
+            ValidarTransacao(transacao);
 
             //Cria numero de autorização
             transacao.Id = Guid.NewGuid();
 
             //Diminui o limite com o valor da transacao
-            this.Limite = this.Limite - transacao.Valor;
+            Limite = Limite - transacao.Valor;
 
-            this.Transacoes.Add(transacao);
+            Transacoes.Add(transacao);
 
         }
 
         private void ValidarTransacao(Transacao transacao)
         {
-            var ultimasTransacoes = this.Transacoes.Where(x =>
+            var ultimasTransacoes = Transacoes.Where(x =>
                                                           x.DtTransacao >= DateTime.Now.AddMinutes(INTERVALO_TRANSACAO));
             if (ultimasTransacoes?.Count() >= 3)
                 throw new Exception("Cartão utilizado muitas vezes em um período curto");
@@ -65,13 +65,13 @@ namespace Spotify.Domain.Transacao
 
         private void VerificaLimite(Transacao transacao)
         {
-            if (this.Limite < transacao.Valor)
+            if (Limite < transacao.Valor)
                 throw new Exception("Cartão não possui limite para esta transacao");
         }
 
         private void IsCartaoAtivo()
         {
-            if (this.Ativo == false)
+            if (Ativo == false)
                 throw new Exception("Cartão não está ativo");
         }
     }

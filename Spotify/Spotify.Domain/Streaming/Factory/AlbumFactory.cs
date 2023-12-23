@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spotify.Domain.Streaming.Agreggates;
 
 namespace Spotify.Domain.Streaming.Factory
 {

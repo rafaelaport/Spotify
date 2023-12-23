@@ -3,7 +3,7 @@ using Moq;
 using Spotify.Application.Album.Dto;
 using Spotify.Application.Album.Service;
 using Spotify.Domain.Account;
-using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Streaming.Repository;
 using Spotify.Domain.Streaming.ValueObject;
 using System;

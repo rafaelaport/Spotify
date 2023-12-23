@@ -1,5 +1,5 @@
 ﻿using Spotify.Application.Album.Dto;
-using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Agreggates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +21,11 @@ namespace Spotify.Application.Album.Profile
             CreateMap<MusicaUpdateDto, Musica>()
                 .ForPath(x => x.Duracao.Valor, f => f.MapFrom(m => m.Duracao));
 
-            CreateMap<Spotify.Domain.Streaming.Album, AlbumOutputDto>();
+            CreateMap<Domain.Streaming.Agreggates.Album, AlbumOutputDto>();
 
-            CreateMap<AlbumInputDto, Spotify.Domain.Streaming.Album>();
+            CreateMap<AlbumInputDto, Domain.Streaming.Agreggates.Album>();
 
-            CreateMap<AlbumUpdateDto, Spotify.Domain.Streaming.Album>();
+            CreateMap<AlbumUpdateDto, Domain.Streaming.Agreggates.Album>();
 
             CreateMap<Banda, BandaOutputDto>();
 

@@ -1,4 +1,5 @@
 ﻿using Spotify.CrossCutting.Repository;
+using Spotify.Domain.Streaming.Agreggates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

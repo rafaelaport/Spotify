@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Spotify.Application.Account.Dto;
-using Spotify.Domain.Account;
+using Spotify.Domain.Account.Agreggates;
 using Spotify.Domain.Account.Repository;
 using System;
 using System.Collections.Generic;

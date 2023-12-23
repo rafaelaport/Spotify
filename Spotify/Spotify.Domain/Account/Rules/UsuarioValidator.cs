@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Spotify.Domain.Account.Agreggates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

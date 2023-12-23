@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spotify.Domain.Streaming;
+using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Streaming.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;

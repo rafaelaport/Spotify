@@ -1,4 +1,4 @@
-﻿using Spotify.Domain.Account;
+﻿using Spotify.Domain.Account.Agreggates;
 using Spotify.Domain.Account.Repository;
 using Spotify.Repository.Context;
 using Spotify.Repository.Database;

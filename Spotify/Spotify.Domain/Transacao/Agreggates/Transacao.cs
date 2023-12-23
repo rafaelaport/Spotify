@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Domain.Transacao
+namespace Spotify.Domain.Transacao.Agreggates
 {
     public class Transacao : Entity<Guid>
     {
         public DateTime DtTransacao { get; set; }
         public Monetario Valor { get; set; }
-        public String Descricao { get; set; }
+        public string Descricao { get; set; }
         public Merchant Merchant { get; set; }
 
     }

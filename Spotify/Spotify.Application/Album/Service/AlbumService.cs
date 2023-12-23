@@ -32,7 +32,7 @@ namespace Spotify.Application.Album.Service
 
         public async Task<AlbumOutputDto> Criar(AlbumInputDto dto)
         {
-            var album = this.mapper.Map<Spotify.Domain.Streaming.Album>(dto);
+            var album = this.mapper.Map<Domain.Streaming.Agreggates.Album>(dto);
 
             HttpClient httpClient = this.httpClientFactory.CreateClient();
 
@@ -57,7 +57,7 @@ namespace Spotify.Application.Album.Service
 
         public async Task<AlbumOutputDto> Editar(AlbumUpdateDto dto)
         {
-            var album = this.mapper.Map<Spotify.Domain.Streaming.Album>(dto);
+            var album = this.mapper.Map<Domain.Streaming.Agreggates.Album>(dto);
                         
             await this.albumRepository.Update(album);
 
