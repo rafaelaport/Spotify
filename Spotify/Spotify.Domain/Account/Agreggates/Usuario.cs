@@ -10,6 +10,7 @@ using Spotify.Domain.Transacao.ValueObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,14 +29,14 @@ namespace Spotify.Domain.Account.Agreggates
         public List<Playlist> Playlists { get; set; } = new List<Playlist>();
         public List<Notificacao.Notificacao> Notificacoes { get; set; } = new List<Notificacao.Notificacao>();
 
-        public void CriarConta(string nome, Email email, string senha, DateTime dtNascimento, Plano plano, Cartao cartao)
+        public void CriarConta(string nome, Email email, Password senha, DateTime dtNascimento, Plano plano, Cartao cartao)
         {
             Nome = nome;
             Email = email;
             DtNascimento = dtNascimento;
 
             //Criptografar a senha
-            SetPassword();
+            CriptografarSenha(senha);
 
             //Assinar um plano
             AssinarPlano(plano, cartao);
@@ -94,6 +95,19 @@ namespace Spotify.Domain.Account.Agreggates
         public void SetPassword()
         {
             Senha.Valor = SecurityUtils.HashSHA1(Senha.Valor);
+        }
+
+        private Password CriptografarSenha(Password senhaAberta)
+        {
+            SHA256 criptoProvider = SHA256.Create();
+
+            byte[] btexto = Encoding.UTF8.GetBytes(senhaAberta.Valor);
+
+            var criptoResult = criptoProvider.ComputeHash(btexto);
+
+            var senha = Convert.ToHexString(criptoResult);
+
+            return new Password(senha);
         }
 
         public void Validate() =>

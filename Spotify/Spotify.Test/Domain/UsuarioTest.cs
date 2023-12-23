@@ -1,4 +1,5 @@
 ﻿using Spotify.Domain.Account.Agreggates;
+using Spotify.Domain.Account.ValueObject;
 using Spotify.Domain.Streaming.Agreggates;
 using Spotify.Domain.Transacao.Agreggates;
 using System;
@@ -31,8 +32,8 @@ namespace Spotify.Test.Domain
             };
 
             string nome = "Dummy Usuario";
-            string email = "teste@teste.com";
-            string senha = "123456";
+            Email email = new Email("teste@teste.com");
+            Password senha = new Password("123456");
 
             //Act
             Usuario usuario = new Usuario();
@@ -76,8 +77,8 @@ namespace Spotify.Test.Domain
             };
 
             string nome = "Dummy Usuario";
-            string email = "teste@teste.com";
-            string senha = "123456";
+            Email email = new Email("teste@teste.com");
+            Password senha = new Password("123456");
 
             //Act
             Assert.Throws<Exception>(() =>

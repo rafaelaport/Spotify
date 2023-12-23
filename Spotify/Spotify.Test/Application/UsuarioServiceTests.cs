@@ -63,7 +63,7 @@ namespace Spotify.Test.Application
             {
                 Nome = "Usuario",
                 Email = new Email("usuario@gmail.com"),
-                Senha = new Password("123456"),
+                Senha = new Password("A123456@"),
                 Playlists = playlist
             };
             
